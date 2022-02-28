@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+
+   <!-- <nav> -->
+        <!-- <div>
+            <a href="/">Blog App</a>
+        </div> -->
+        <!-- <ul>
+            <li>
+                <a href="/about">About</a>
+            </li>
+            <li>
+                <a href="/contact">Contact</a>
+            </li> -->
+            <!-- <li>
+                <a href="/blog/create">Create a Blog</a>  -->
+                <!-- Till now we dont have this created so when user click on lets redirect to 404 page
+                lets create 404.ejs under pages  check index.js -->
+            <!-- </li>
+        </ul> -->
+    <!-- </nav> -->
+    <!-- we will be commenting this nav division in every page and will be putting it in 
+    partials folder with new page so that for every navigation and for every click i can see
+    all the navigation links check nav.ejs under partials -->
+
+    <%- include('./partials/nav.ejs') %>
+    <%if(!blogs.length){%>
+        <h1>No blogs found.Try Creating one!</h1>
+    <%} else {%>
+    <%blogs.forEach(blog => {%>
+        <h1><%= blog.title %></h1>
+        <p><%= blog.description %></p>
+    <% }) %>
+    <% } %>
+</body>
+</html>
